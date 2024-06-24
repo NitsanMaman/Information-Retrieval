@@ -1,0 +1,56 @@
+{
+    "students": [
+        {
+            "name": "Gilad Segal",
+            "email": "gilad.segal@e.braude.ac.il",
+            "hobbies" : ["Playing Tennis", "Reading Fantazy books", "Gaming"],
+            "courses": [
+                "Information recovery", 
+                "Project- phase B", 
+                "Inteoduction to brain sensing and learning",
+                "Laboratory in client and server side programming technologies",
+                "Computer Embedded System",
+                "BlockChain"
+            ]
+        },
+        {
+            "name": "Chen Hanzin",
+            "email": "chen.hanzin@e.braude.ac.il",
+            "hobbies" : ["Fashion", "Dancing", "Building in Lego", "Hangout with friends", "Reading Thrillers and Romance books"],
+            "courses": [
+                "Information recovery", 
+                "Project- phase B", 
+                "Introduction to brain sensing and learning",
+                "Laboratory in client and server side programming technologies",
+                "Seminar in pattern matching",
+                "Laboratory in optimization",
+                "Generative deep learning",
+                "Introduction to microeconomics"
+            ]
+        },
+        {
+            "name": "Nitsan Maman",
+            "email": "nitsan.maman@e.braude.ac.il",
+            "hobbies" : ["Playing Video Games", "Electronics Repair", "Traveling"],
+            "courses": [
+                "Information recovery", 
+                "Project- phase B",
+                "Seminar in pattern matching",
+                "Introduction to brain sensing and learning",
+                "Computer Embedded System"
+            ]
+        },
+        {
+            "name": "Elad Fisher",
+            "email": "elad.fisher@e.braude.ac.il",
+            "hobbies" : ["Tennis", "Reading", "Gaming"],
+            "courses": [
+                "Information recovery", 
+                "Project- phase B", 
+                "Inteoduction to brain sensing and learning",
+                "Laboratory in client and server side programming technologies",
+                "Computer Embedded System"
+            ]
+        }
+    ]
+}
