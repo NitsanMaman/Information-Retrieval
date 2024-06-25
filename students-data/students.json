@@ -3,20 +3,20 @@
         {
             "name": "Gilad Segal",
             "email": "gilad.segal@e.braude.ac.il",
-            "hobbies" : ["Playing Tennis", "Reading Fantazy books", "Gaming"],
+            "hobbies" : ["Playing Tennis", "Reading Fantazy Books", "Gaming"],
             "courses": [
                 "Information recovery", 
                 "Project- phase B", 
                 "Inteoduction to brain sensing and learning",
                 "Laboratory in client and server side programming technologies",
                 "Computer Embedded System",
-                "BlockChain"
+                "Blockchain & Crypto Currency"
             ]
         },
         {
             "name": "Chen Hanzin",
             "email": "chen.hanzin@e.braude.ac.il",
-            "hobbies" : ["Fashion", "Dancing", "Building in Lego", "Hangout with friends", "Reading Thrillers and Romance books"],
+            "hobbies" : ["Fashion", "Dancing", "Building In Lego", "Hangout With Friends", "Reading Thrillers & Romance Books"],
             "courses": [
                 "Information recovery", 
                 "Project- phase B", 
@@ -43,13 +43,15 @@
         {
             "name": "Elad Fisher",
             "email": "elad.fisher@e.braude.ac.il",
-            "hobbies" : ["Tennis", "Reading", "Gaming"],
+            "hobbies" : ["Playing/Making Video Games", "Drawing", "Reading Comic Books"],
             "courses": [
                 "Information recovery", 
                 "Project- phase B", 
                 "Inteoduction to brain sensing and learning",
                 "Laboratory in client and server side programming technologies",
-                "Computer Embedded System"
+                "Computer Embedded System",
+                "Programing Languages",
+                "Men & Women in the Modern Age"
             ]
         }
     ]
