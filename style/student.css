@@ -1,0 +1,53 @@
+body {
+    background-color: #f0f8ff;
+    color: #333;
+}
+
+.StudentCard {
+    margin: 10px;
+    text-align: center;
+    border: 2px solid #ccc;
+    background-color: #e6f7ff;
+    color: #333;
+    transition: transform 0.2s;
+    padding: 30px; /* Increased padding */
+    font-size: 1.1rem; /* Increased font size */
+    min-height: 500px
+}
+
+.image-container {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+img {
+    width: 50%;
+    height: 50%;
+}
+
+.student-info {
+    text-align: left;
+}
+
+.student-info h1 {
+    margin-top: 0;
+}
+
+.student-info p {
+    margin: 5px 0;
+}
+
+.student-info ul {
+    list-style-type: disc;
+    margin: 10px 0 0 20px;
+    padding: 0;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

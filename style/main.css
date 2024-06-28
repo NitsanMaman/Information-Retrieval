@@ -15,12 +15,10 @@ body {
 
 .navbar-nav .nav-link {
     font-size: 1.5rem;
-    color: #420106;
 }
 
 .navbar-nav:hover .nav-link:hover {
     font-size: 1.5rem;
-    color: #420106;
     text-decoration: underline;
 }
 

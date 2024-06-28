@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/student.css">
+    <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="https://github.com/gilseg10/Information-recovery-class">EasyGo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="main.html">Main</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Nitsan.html">Nitsan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Elad.html">Elad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Chen.html">Chen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="Gilad.html">Gilad</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="StudentCard">
+                    <div class="card-body">
+                        <div class="image-container text-center mb-4">
+                            <img id="student-image" src="" class="img-fluid" alt="Student Image">
+                        </div>
+                        <div class="student-info">
+                            <h1 id="student-name" class="card-title text-center"></h1>
+                            <p><strong>Email:</strong> <a id="student-email" href="#"></a></p>
+                            <p><strong>Hobbies:</strong> <span id="student-hobbies"></span></p>
+                            <p><strong>Courses:</strong></p>
+                            <ul id="student-courses" class="list-group"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="javascripts/studnet.js"></script>
+    <script>
+        // Call the function to load the student data with the desired index (e.g., index 0)
+        loadStudent(0);
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
