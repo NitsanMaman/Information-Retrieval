@@ -1,10 +1,15 @@
 body {
     background-color: #f0f8ff;
     color: #333;
+    cursor: url('../cursors/cursor.png'), auto;
+}
+
+a, button, .card-link {
+    cursor: url('../cursors/pointer.png'), pointer;
 }
 
 .navbar {
-    border-bottom: 3px solid #ccc; 
+    border-bottom: 3px solid #ccc;
 }
 
 .navbar-brand {
@@ -37,9 +42,9 @@ body {
     background-color: #e6f7ff;
     color: #333;
     transition: transform 0.2s;
-    padding: 30px; /* Increased padding */
-    font-size: 1.1rem; /* Increased font size */
-    min-height: 500px
+    padding: 30px;
+    font-size: 1.1rem;
+    min-height: 500px;
 }
 
 .card:hover {
@@ -58,7 +63,6 @@ body {
 .team-video {
     width: 100%;
     height: auto;
-    margin: 20px auto;
 }
 
 .card-text {
@@ -84,12 +88,3 @@ body {
     width: 100%;
     max-width: 1200px;
 }
-
-body {
-    cursor: url('../cursors/cursor.png'), auto;
-}
-
-a, button, .card-link {
-    cursor: url('../cursors/pointer.png'), pointer;
-}
-
