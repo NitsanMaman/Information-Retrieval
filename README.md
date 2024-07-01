@@ -1,6 +1,6 @@
 # Information Recovery Project
 
-See Live App [here]([./main.html](https://gilseg10.github.io/Information-recovery-class/main.html))
+See Live App [here]((https://gilseg10.github.io/Information-recovery-class/main.html))
 
 This project includes html pages (+ css) that describes out team members. Also, There is our first Home Assignment for this class (HW1)
 
