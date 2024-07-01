@@ -84,3 +84,12 @@ body {
     width: 100%;
     max-width: 1200px;
 }
+
+body {
+    cursor: url('../cursors/cursor.png'), auto;
+}
+
+a, button, .card-link {
+    cursor: url('../cursors/pointer.png'), pointer;
+}
+
