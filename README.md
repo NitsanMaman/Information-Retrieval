@@ -12,6 +12,7 @@ This project includes html pages (+ css) that describes out team members. Also, 
 ## Students Pages
 **Presenting Students Information:** Email, Hobbies and Courses taken this semester.
 
-
+## HW2
+Ground steps for web crawler based on STEAM API. In this task we worked on several queries (appear on the word file) with python files to run them.
 
 
