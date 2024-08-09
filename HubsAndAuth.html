@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubs and Auth Exercise</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/student.css">
+    <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="https://github.com/gilseg10/Information-recovery-class">EasyGo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="main.html">Main</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Nitsan.html">Nitsan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Elad.html">Elad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Chen.html">Chen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Gilad.html">Gilad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="hubs_auth.html">Hubs and Auth Exercise</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="text-center">Hubs and Auth Exercise</h2>
+
+        <!-- Table for Questions and Answers -->
+        <div class="table-responsive mt-4">
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Question</th>
+                        <th>Answer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Write down different interesting technologies that you used in the project.</td>
+                        <td>a. We used the Steam Web Api - through which we used familiar queries to check many games: what achievements (tags) the game has, average playing time and etc.
+                            <br><br>b. We also used BeautifulSoup - a Python library designed for extracting information from HTML websites. We used it to extract a description text for each game from its web page and also to extract a list of games according to categories that exist on the Steam website.</td>
+                    </tr>
+                    <tr>
+                        <td>How long did your queries run? What does it depend on? Do you think this time can be improved?</td>
+                        <td>The queries run in the range of 10-30 minutes depending on the amount of games (pages we searched for) and the amount of users we used for the database. For the purpose of improvement, it is possible to reduce the number of users by pre-filtering users with a low playing time or a low amount of games in general.</td>
+                    </tr>
+                    <tr>
+                        <td>Are there hubs on the returned pages? authorities? Justify your answer</td>
+                        <td>For the query to find games based on a game category, we provided the crawler with the Hubs (the categories) - and in this way, we received the Authorities (the games) that belong to that Hub. More details in section next answer's section.</td>
+                    </tr>
+                    <tr>
+                        <td>Choose 10 pages that the crawler returned, and which have links between them. Calculate pageRank for each page, it is recommended to use a prepared script. Show the calculations and the final rating.</td>
+                        <td>As part of this assignment, we ran another query where it receives categories of games that we referred to as hubs and by using them, the crawler returned us the most popular games for those categories, by extracting a suitable link (using the < a > tag). We defined these games as Authorities and the crawler saved them for us in a table in a csv file (attached in the submission). Of these, we chose 10 pages: 4 category pages (hubs) and 6 game pages (authorities) and performed a pageRank calculation based on the formula we learned in class: 
+                            <br> 
+                            <img src="images/RankFormula.png">
+                            <br>
+                            <u>In our context:</u><br>
+                            We neglected 'd'.<br>
+                            N equals 10 pages.<br>
+                            I(p) represents a set of categories that point to p (game).<br>
+                            D(j) represents a set of games that category j points to.<br>
+                            <br>
+                            <u>First step:</u><br>
+                            At startup each page gets a rating of 1/10.<br>
+                            <br>
+                            <u>Second step:</u><br>
+                            Understanding how the ranking of each page is calculated based on the pages that point to it.<br>
+                            • Since category pages only point to other pages (game pages) and no one points to them then their rating will remain 1/10.<br>
+                            • The game pages receive referrals from several different categories, so it was necessary to calculate each one independently.<br>
+                            <br>
+                            <u>Third step:</u><br>
+                            Calculation of each rating of each game:<br>
+                            <br>
+                            Game Name: Counter-Strike 2<br>
+                            I(Counter−Strike 2)={ Action, Strategy }<br>
+                            D(Action)=4 and D(Strategy)=3.<br>
+                            R(Counter-Strike 2) = 0.1 + 0.1 / 4 + 0.1 / 3 = 0.1583<br>
+                            <br>
+                            Game Name: ELDEN RING<br>
+                            I(ELDEN RING)={ Action, RPG }<br>
+                            D(Action)=4 and D(RPG)=4.<br>
+                            R(ELDEN RING) = 0.1 + 0.1 / 4 + 0.1 / 4 = 0.15<br>
+                            <br>
+                            Game Name: The Elder Scrolls® Online<br>
+                            I(The Elder Scrolls® Online)={ Adventure, RPG, Action }<br>
+                            D(Adventure)=3 and D(RPG)=4 D(Action)=4.<br>
+                            R(The Elder Scrolls® Online) = 0.1 + 0.1 / 3 + 0.1 / 4 + 0.1 / 4 = 0.1833<br>
+                            <br>
+                            Game Name: Baldur's Gate 3<br>
+                            I(Baldur's Gate 3)={ Adventure, RPG, Strategy }<br>
+                            D(Adventure)=3 and D(RPG)=4 D(Strategy)=3.<br>
+                            R(Baldur's Gate 3) = 0.1 + 0.1 / 3 + 0.1 / 4 + 0.1 / 3 = 0.1916<br>
+                            <br>
+                            Game Name: The First Descendant<br>
+                            I(Baldur's Gate 3)={ Adventure, Action}<br>
+                            D(Adventure)=3 and D(Action)=4.<br>
+                            R(Baldur's Gate 3) = 0.1 + 0.1 / 3 + 0.1 / 4 = 0.1583<br>
+                            <br>
+                            Game Name: Once Human<br>
+                            I(Once Human)={ Adventure, Action, RPG, Strategy}<br>
+                            D(Adventure)=3 and D(Action)=4 D(RPG)=4 D(Strategy)=3.<br>
+                            R(Once Human) = 0.1 + 0.1 / 3 + 0.1 / 4 + 0.1 / 4 + 0.1 / 3  = 0.2166<br>
+                        </td>
+                        <tr>
+                            <td>Show two different users the rating from the previous section, in which case they should mark relevance and perform relevance feedback. Is it possible to suggest an adapted query in order to improve results?</td>
+                            <td>We presented the findings to two friends who like computer games:
+                                <br>
+                                <u>First User:</u> The first user expressed a strong preference for adventure games
+                                And shared that he especially enjoys games like "The Elder Scrolls® Online" and "Baldur's Gate 3." He felt that these games were highly rated
+                                in the adventure category, because they provide the typical experiences of the genre. However,
+                                The user indicated a specific lack of attraction to the game "Once Human". He stated that this game is not considered a traditional adventure game in his eyes. He recommended that this game should be rated lower or even
+                                will be removed from the adventure category. The user emphasized a preference to see more classic adventure games,
+                                such as "Grand Theft Auto V"
+                                and "The First Descendant".
+                                <br>
+                                <u>Second user:</u>
+                                The second user recently started playing "Baldur's Gate 3" and was very impressed with its placement in the RPG and strategy categories. He emphasized the game's strategic depth, which aligns well with his gaming preferences. In addition, he has expressed great interest in online games, making games like "The Elder Scrolls® Online" and "Destiny 2" particularly relevant to his taste. The user was satisfied
+                                also from the rating of "The Elder Scrolls® Online". The user also stated that the game "Once Human" is not particularly his favorite and therefore was rated lower compared to other games.
+                            </td>
+                        </tr>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Paragraph with title "Crawler Query Details" -->
+        <div class="mt-5">
+            <h3>Crawler Query Details</h3>
+            <p>In this exersize, we created a Python script that retrieves the top 10 games from Steam across six different categories: Action, Adventure, RPG, Strategy, Indie, and Casual. The script saves the game data into a CSV file and generates individual graph visualizations for each category. These graphs illustrate the categories as hubs and the top games as authorities, with edges connecting them, providing a clear and organized view of the top games within each category.</p>
+        </div>
+
+        <!-- 3x2 Container for Pictures -->
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="image-wrapper" style="overflow: hidden; height: 400px;">
+                        <img src="images/TopAction.png" class="img-fluid custom-img" alt="Picture 1">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="image-wrapper" style="overflow: hidden; height: 400px;">
+                        <img src="images/TopAdventure.png" class="img-fluid custom-img" alt="Picture 2">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="image-wrapper" style="overflow: hidden; height: 400px;">
+                        <img src="images/TopCasual.png" class="img-fluid custom-img" alt="Picture 3">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="image-wrapper" style="overflow: hidden; height: 400px;">
+                        <img src="images/TopIndie.png" class="img-fluid custom-img" alt="Picture 4">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="image-wrapper" style="overflow: hidden; height: 400px;">
+                        <img src="images/TopRPG.png" class="img-fluid custom-img" alt="Picture 5">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="image-wrapper" style="overflow: hidden; height: 400px;">
+                        <img src="images/TopStrategy.png" class="img-fluid custom-img" alt="Picture 6">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

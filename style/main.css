@@ -88,3 +88,12 @@ a, button, .card-link {
     width: 100%;
     max-width: 1200px;
 }
+
+.custom-img {
+    width: 100%;  /* Ensures full width */
+    height: auto;  /* Adjusts height automatically based on aspect ratio */
+    object-fit: contain;  /* Ensures the whole image is visible */
+    max-height: 100%;  /* Prevents image from exceeding the container height */
+}
+
+
