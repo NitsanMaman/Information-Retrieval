@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game's Query Graphical Description</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="https://github.com/gilseg10/Information-recovery-class">EasyGo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="main.html">Main</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Nitsan.html">Nitsan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Elad.html">Elad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Chen.html">Chen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Gilad.html">Gilad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="GameQueryGraph.html">Game's Query Graphs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="HubsAndAuth.html">Hubs and Auth Exercise</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="text-center">Game's Query Graphical Description</h2>
+        <p>Below are the visualizations and interactive elements that describe the division of games returned from our query into categories: Casual, Intense, Competitive.</p>
+        
+        <!-- Insert your graph images here -->
+        <div class="row">
+                <img src="images/GameQueryGraph.png" class="img-fluid" alt="Action Games Graph">
+        </div>
+
+        <!-- Interactive Game Selection -->
+        <div class="mt-5">
+            <h3>Interactive Game Selection</h3>
+            <div id="interactive-selection">
+                <select id="category-dropdown" class="form-select mb-3">
+                    <option selected>Select a Category</option>
+                </select>
+                <select id="game-dropdown" class="form-select mb-3">
+                    <option selected>Select a Game</option>
+                </select>
+                <p id="selected-game-label"></p>
+                <p id="less-time-label"></p>
+                <p id="more-time-label"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function parseCSV() {
+            Papa.parse('GameQueryCSV/query1-gamesPlaytime-new.csv', {
+            download: true,
+            header: true, // Assume the first row contains the correct headers
+            skipEmptyLines: true, // Ignore empty rows
+            complete: function(results) {
+                let rawData = results.data;
+
+                console.log('Raw Parsed Data:', rawData);
+
+                // Validate the data to ensure keys are as expected
+                const filteredData = rawData.filter(row => 
+                    row['game name'] && row['Category'] && row['number of players'] && row['average playtime']
+                );
+
+                console.log('Filtered Data:', filteredData);
+
+                if (filteredData.length > 0) {
+                    const mappedData = filteredData.map(row => ({
+                        name: row['game name'].trim(),
+                        category: row['Category'].trim(),
+                        avgPlaytime: parseFloat(row['average playtime']),
+                        players: parseInt(row['number of players'], 10)
+                    }));
+
+                    console.log('Mapped Data:', mappedData);
+
+                    const categories = [...new Set(mappedData.map(game => game.category))];
+                    console.log('Categories:', categories);
+
+                    // Populate dropdowns with data
+                    populateDropdowns(mappedData);
+                } else {
+                    console.error("No valid data found after filtering.");
+                }
+            },
+            error: function(error) {
+                console.error('Error parsing CSV:', error);
+            }
+        });
+
+
+
+        }
+    
+        function populateDropdowns(data) {
+            const categories = [...new Set(data.map(game => game.category))];
+            console.log('Categories:', categories);  // Log the categories
+
+            const categoryDropdown = document.getElementById('category-dropdown');
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                categoryDropdown.appendChild(option);
+            });
+
+            categoryDropdown.addEventListener('change', () => {
+                const selectedCategory = categoryDropdown.value;
+                const filteredGames = data
+                    .filter(game => game.category === selectedCategory)
+                    .sort((a, b) => a.name.localeCompare(b.name)); // Sort games A-Z by name
+
+                const gameDropdown = document.getElementById('game-dropdown');
+                gameDropdown.innerHTML = '<option selected>Select a Game</option>'; // Clear previous options
+
+                filteredGames.forEach(game => {
+                    const option = document.createElement('option');
+                    option.value = game.name;
+                    option.textContent = game.name;
+                    gameDropdown.appendChild(option);
+                });
+            });
+
+            document.getElementById('game-dropdown').addEventListener('change', () => {
+                const selectedGameName = document.getElementById('game-dropdown').value;
+                const selectedGame = data.find(game => game.name === selectedGameName);
+
+                const selectedGameLabel = document.getElementById('selected-game-label');
+                selectedGameLabel.innerHTML = `<b>Selected Game:</b> ${selectedGame.name} - Average Playtime: ${selectedGame.avgPlaytime} hours - Number of Players: ${selectedGame.players}`;
+
+                const lessTimeGame = data
+                    .filter(game => game.category === selectedGame.category && game.avgPlaytime < selectedGame.avgPlaytime)
+                    .sort((a, b) => b.avgPlaytime - a.avgPlaytime)[0];
+
+                const moreTimeGame = data
+                    .filter(game => game.category === selectedGame.category && game.avgPlaytime > selectedGame.avgPlaytime)
+                    .sort((a, b) => a.avgPlaytime - b.avgPlaytime)[0];
+
+                const lessTimeLabel = document.getElementById('less-time-label');
+                const moreTimeLabel = document.getElementById('more-time-label');
+
+                lessTimeLabel.innerHTML = lessTimeGame ? 
+                    `<b>Less Time-Consuming Option:</b> ${lessTimeGame.name} - ${lessTimeGame.avgPlaytime} hours - Number of Players: ${lessTimeGame.players}` : 
+                    `<b>Less Time-Consuming Option:</b> None`;
+
+                moreTimeLabel.innerHTML = moreTimeGame ? 
+                    `<b>More Time-Consuming Option:</b> ${moreTimeGame.name} - ${moreTimeGame.avgPlaytime} hours - Number of Players: ${moreTimeGame.players}` : 
+                    `<b>More Time-Consuming Option:</b> None`;
+            });
+        }
+
+    
+        // Run the function to parse CSV and initialize the interactive dropdowns
+        parseCSV();
+    </script>
+    
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

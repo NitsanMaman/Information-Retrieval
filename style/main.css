@@ -8,6 +8,14 @@ a, button, .card-link {
     cursor: url('../cursors/pointer.png'), pointer;
 }
 
+select {
+    cursor: url('../cursors/cursor.png'), auto;
+}
+
+.selected-option {
+    cursor: url('../cursors/cursor.png'), pointer;
+}
+
 .navbar {
     border-bottom: 3px solid #ccc;
 }
