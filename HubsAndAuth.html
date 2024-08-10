@@ -121,7 +121,11 @@
                         </td>
                         <tr>
                             <td>Show two different users the rating from the previous section, in which case they should mark relevance and perform relevance feedback. Is it possible to suggest an adapted query in order to improve results?</td>
-                            <td>We presented the findings to two friends who like computer games:
+                            <td>We presented the query to two friends who play computer games and have a Steam account. From the query we presented 10 games (documents) that emerged from the query, and asked them how relevant they were to them, based on the games they like/purchase on the Steam website. Both friends chose which games are relevant for them. Below is the list of documents that we presented to them:
+                                <br>
+                                <br> 
+                                <img src="images/table.png">
+                                <br>
                                 <br>
                                 <u>First User:</u> The first user expressed a strong preference for adventure games
                                 And shared that he especially enjoys games like "The Elder Scrolls® Online" and "Baldur's Gate 3." He felt that these games were highly rated
@@ -129,11 +133,22 @@
                                 The user indicated a specific lack of attraction to the game "Once Human". He stated that this game is not considered a traditional adventure game in his eyes. He recommended that this game should be rated lower or even
                                 will be removed from the adventure category. The user emphasized a preference to see more classic adventure games,
                                 such as "Grand Theft Auto V"
-                                and "The First Descendant".
-                                <br>
+                                and "The First Descendant". <b>In total, the first user marked 7 relevant games from the list.</b>
+                                <br><br>
                                 <u>Second user:</u>
                                 The second user recently started playing "Baldur's Gate 3" and was very impressed with its placement in the RPG and strategy categories. He emphasized the game's strategic depth, which aligns well with his gaming preferences. In addition, he has expressed great interest in online games, making games like "The Elder Scrolls® Online" and "Destiny 2" particularly relevant to his taste. The user was satisfied
                                 also from the rating of "The Elder Scrolls® Online". The user also stated that the game "Once Human" is not particularly his favorite and therefore was rated lower compared to other games.
+                                <b>In total, the first user marked 6 relevant games from the list.</b>
+                                <br><br>
+                                <u>Precision and Recall calculation:</u> For Precision, the calculation is based on the relevant games divided by the 10 documents we returned. On the other hand, the recall is calculated based on the amount of relevant documents divided by an estimate for the amount of documents found on the Steam website. In our query context, we returned popular games from certain categories. The site has around 100,000 different games and about 60 different categories (genres) of games. Therefore for each category it can be assumed that there are 1,700 games in the area.
+                                <br><br>
+                                <u>First User:</u>
+                                Precision = 7/10 = 0.7
+                                Recall = 7/1700 = 0.00411
+                                <br><br>
+                                <u>Second User:</u>
+                                Precision = 6/10 = 0.6
+                                Recall = 6/1700 = 0.0035
                             </td>
                         </tr>
                     </tr>
