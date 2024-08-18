@@ -19,6 +19,10 @@ Ground steps for web crawler based on STEAM API. In this task we worked on sever
 2. Fetching the most popular words in games achievements.
 3. Fetching the most popular words in games descriptions.
 
+All scripts are in /HW2/crawlerFiles with additional script of "SteamIDCollector". This script is meant to collect steam ids and save them in .csv file for user's data described in query 1. 
+
 ## HW3
 Authorities and Hubs: we answered questions in this subject (.doc file) and added one more python script for our web crawler. This script invloves fetching most popular games from specific categories and calculating pageRank for each page. Also we added python script to demonstare graphical result and small UI for our first query from HW2.  
 
+## Final Project
+In /project/final_project_answers.docx there are the course final questions and answers of our group.
