@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Information</title>
+    <title>TF-IDF Screenshots</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style/student.css">
     <link rel="stylesheet" href="style/main.css">
+    <style>
+        .custom-img {
+            height: 600px; /* Increase the height for better readability */
+            object-fit: contain; /* Ensures the image is fully visible */
+        }
+        .image-wrapper {
+            margin-bottom: 10px; /* Reduces the space between images */
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,7 +32,7 @@
                         <a class="nav-link" href="Nitsan.html">Nitsan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="Elad.html">Elad</a>
+                        <a class="nav-link" href="Elad.html">Elad</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="Chen.html">Chen</a>
@@ -32,13 +40,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="Gilad.html">Gilad</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" id="ourProjectDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Our Project
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="ourProjectDropdown">
                             <li><a class="dropdown-item" href="GameQueryGraph.html">Game's Query Graphs</a></li>
-                            <li><a class="dropdown-item" href="TF-IDF.html">TF-IDF Screenshots</a></li>
+                            <li><a class="dropdown-item active" href="TF-IDF.html">TF-IDF Screenshots</a></li>
                             <li><a class="dropdown-item" href="HubsAndAuth.html">Hubs and Auth Exercise</a></li>
                             <li><a class="dropdown-item" href="SteamCrawler.html">Steam Crawler</a></li>
                         </ul>
@@ -47,31 +55,16 @@
             </div>
         </div>
     </nav>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <div class="StudentCard">
-                    <div class="card-body">
-                        <div class="image-container text-center mb-4">
-                            <img id="student-image" src="" class="img-fluid" alt="Student Image">
-                        </div>
-                        <div class="student-info">
-                            <h1 id="student-name" class="card-title text-center"></h1>
-                            <p><strong>Email:</strong> <a id="student-email" href="#"></a></p>
-                            <p><strong>Hobbies:</strong> <span id="student-hobbies"></span></p>
-                            <p><strong>Courses:</strong></p>
-                            <ul id="student-courses" class="list-group"></ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="javascripts/studnet.js"></script>
-    <script>
-        // Call the function to load the student data with the desired index (e.g., index 0)
-        loadStudent(3);
-    </script>
+    
+        <br><br><br>
+        <h2 class="text-center">TF-IDF Screenshots</h2>
+        <p class="text-center">Below are some screenshots demonstrating the functionality of the TF-IDF project.</p>
+
+        <!-- Screenshots -->
+        <img src="images/InvertedIndex.png" class="img-fluid custom-img" alt="Inverted Index">
+        <img src="images/TF-IDF.png" class="img-fluid custom-img" alt="TF-IDF Calculation">
+        <img src="images/TF-IDF2.png" class="img-fluid custom-img" alt="TF-IDF Calculation 2">
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
